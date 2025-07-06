@@ -1,0 +1,50 @@
+# Ignore binary and intermediate files
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vscode/
+.vs/
+
+# Ignore project-specific user settings
+*.user
+*.userprefs
+*.suo
+*.opensdf
+*.sdf
+*.cache
+*.log
+
+# Ignore auto-generated files
+*.generated.h
+*.gen.cpp
+
+# Ignore Visual Studio files
+*.VC.db
+*.VC.opendb
+
+# Ignore MacOS hidden files
+.DS_Store
+
+# Ignore Backup and autosave files from UE
+*.backup
+*.autosave
+
+# Ignore other unnecessary files
+*.xcodeproj
+*.xcworkspace
+*.xcuserdata/
+
+# Ignore config files that can vary per user or machine
+Config/DefaultEditor.ini
+Config/DefaultEditorPerProjectUserSettings.ini
+Config/EditorPerProjectUserSettings.ini
+Config/DefaultEditorUserSettings.ini
+
+# Ignore user-specific project files
+*.uprojectdirs
+
+# Ignore Unreal Engine derived files and cache
+Saved/
+DerivedDataCache/
