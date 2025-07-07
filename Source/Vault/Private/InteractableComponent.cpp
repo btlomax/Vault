@@ -22,9 +22,11 @@ void UInteractableComponent::BeginPlay()
 	Super::BeginPlay();
 
 	
+	if(FrontPromptWidget)
+		FrontPromptWidget->SetHiddenInGame(true);
 
-	FrontPromptWidget->SetHiddenInGame(true);
-	RearPromptWidget->SetHiddenInGame(true);
+	if(RearPromptWidget)
+		RearPromptWidget->SetHiddenInGame(true);
 
 	// ...
 	
