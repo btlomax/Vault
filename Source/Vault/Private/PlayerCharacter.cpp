@@ -216,5 +216,53 @@ void APlayerCharacter::Interact()
 	}
 }
 
+void APlayerCharacter::AddItemToInventory(FName ItemID, int32 Quantity)
+{
+	if (Inventory.Contains(ItemID))
+	{
+		Inventory[ItemID] += Quantity;
+	}
+	else
+	{
+		Inventory.Add(ItemID, Quantity);
+	}
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, FString::Printf(TEXT("Added %d of %s to inventory."), Quantity, *ItemID.ToString()));
+}
+
+void APlayerCharacter::RemoveItemFromInventory(FName ItemID, int32 Quantity)
+{
+	if (Inventory.Contains(ItemID))
+	{
+		int32& CurrentQuantity = Inventory[ItemID];
+		if (CurrentQuantity >= Quantity)
+		{
+			CurrentQuantity -= Quantity;
+			if (CurrentQuantity <= 0)
+			{
+				Inventory.Remove(ItemID);
+			}
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Removed %d of %s from inventory."), Quantity, *ItemID.ToString()));
+		}
+		else
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Not enough items to remove."));
+		}
+	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Item not found in inventory."));
+	}
+}
+
+bool APlayerCharacter::HasItemInInventory(FName ItemID, int32 Quantity) const
+{
+	if (const int32* FoundQuantity = Inventory.Find(ItemID))
+	{
+		Quantity = *FoundQuantity;
+		return true;
+	}
+	Quantity = 0;
+	return false;
+}
 
 

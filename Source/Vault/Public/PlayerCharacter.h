@@ -46,6 +46,18 @@ public:
     /** Returns FollowCamera subobject **/
     FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Inventory")
+    TMap<FName, int32> Inventory;
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+    void AddItemToInventory(FName ItemID, int32 Quantity);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	void RemoveItemFromInventory(FName ItemID, int32 Quantity);
+
+	UFUNCTION(BlueprintCallable, Category = "Inventory")
+	bool HasItemInInventory(FName ItemID, int32 Quantity) const;
+
 private:
 
     /** Interactable component for interaction with objects in the world */
