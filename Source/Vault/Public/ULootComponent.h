@@ -31,4 +31,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Loot")
 	void GenerateLoot();
+
+	UFUNCTION(BlueprintCallable, Category = "Loot")
+	void RemoveLoot(FName ItemID);
 };

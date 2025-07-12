@@ -36,3 +36,8 @@ void UULootComponent::GenerateLoot()
     }
 }
 
+void UULootComponent::RemoveLoot(FName ItemID)
+{
+        SelectedLoot.Remove(ItemID);
+}
+
