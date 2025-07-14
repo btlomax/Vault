@@ -142,7 +142,7 @@ void APlayerCharacter::ZoomIn(const FInputActionValue& Value)
 	// Adjust the camera boom length based on the zoom value
 	if (CameraBoom)
 	{
-		CameraBoom->TargetArmLength = FMath::Clamp(CameraBoom->TargetArmLength + (ZoomValue * 5), 150.f, 1200.f);
+		CameraBoom->TargetArmLength = FMath::Clamp(CameraBoom->TargetArmLength + (ZoomValue * 8), 150.f, 1200.f);
 	}
 }
 
@@ -154,7 +154,7 @@ void APlayerCharacter::ZoomOut(const FInputActionValue& Value)
 	// Adjust the camera boom length based on the zoom value
 	if (CameraBoom)
 	{
-		CameraBoom->TargetArmLength = FMath::Clamp(CameraBoom->TargetArmLength - (ZoomValue * 5), 150.f, 1200.f);
+		CameraBoom->TargetArmLength = FMath::Clamp(CameraBoom->TargetArmLength - (ZoomValue * 8), 150.f, 1200.f);
 	}
 }
 
