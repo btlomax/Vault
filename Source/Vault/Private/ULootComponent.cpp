@@ -29,8 +29,23 @@ void UULootComponent::GenerateLoot()
 
     for (const FLootItem& Item : PossibleLoot)
     {
-        if (FMath::FRand() <= Item.Probability)
+		float rand = FMath::FRandRange(0.1f, 0.9f);
+
+        GEngine->AddOnScreenDebugMessage(
+            -1,
+            5.0f,
+            FColor::Green,
+            FString::Printf(
+                TEXT("ItemID: %s | Rand: %.3f | Probability: %.3f"),
+                *Item.ItemID.ToString(),
+                rand,
+                Item.Probability
+            )
+        );
+
+        if (rand <= Item.Probability)
         {
+           
             SelectedLoot.Add(Item.ItemID);
         }
     }
