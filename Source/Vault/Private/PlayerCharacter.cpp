@@ -63,7 +63,7 @@ void APlayerCharacter::Tick(float DeltaTime)
 	
 	FVector Start = GetActorLocation() + FVector(0, 0, 50);
     // To make the forward vector point slightly downward (diagonal), add a small negative Z component and normalize:
-    FVector Forward = (GetActorForwardVector() + FVector(0, 0, -0.5f)).GetSafeNormal();
+    FVector Forward = (GetActorForwardVector() + FVector(0, 0, -0.3f)).GetSafeNormal();
 	FVector End = Start + (Forward * 200.f);              
 
 	FHitResult Hit;
