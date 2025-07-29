@@ -116,6 +116,11 @@ void APlayerCharacter::Tick(float DeltaTime)
 	DrawDebugLine(GetWorld(), Start, End, LineColor, false, 2.0f, 0, 1.0f);
 }
 
+void APlayerCharacter::CameraRaycast()
+{
+	FVector Start = FollowCamera->GetRelativeLocation();
+}
+
 void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	// Set up action bindings
