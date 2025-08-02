@@ -10,7 +10,7 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnInteracted, AActor*, InteractingPlayer);
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class VAULT_API UInteractableComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -34,7 +34,7 @@ public:
 	FOnInteracted OnInteracted;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interactable")
-	TSubclassOf<UWidgetComponent> PromptWidgetClass;
+	TObjectPtr<UWidgetComponent> PromptWidgetClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Interactable")
 	UWidgetComponent* FrontPromptWidget;
